@@ -1,15 +1,24 @@
-const { Aluno, Sequelize } = require('../database/models');
+const {
+    Aluno,
+    Sequelize
+} = require('../database/models');
+
 const Op = Sequelize.Op;
 
 const alunoController = {
     index: async (req, res) => {
-        
-        const alunos = await Aluno.findAll();
+
+        // listando alunos com turmas relacionadas
+        const alunos = await Aluno.findAll({
+            include: ['turmas']
+        });
 
         return res.json(alunos);
     },
     filtroAnoMatricula: async (req, res) => {
-        const { ano } = req.params;
+        const {
+            ano
+        } = req.params;
 
         const alunosFiltrados = await Aluno.findAll({
             where: {
@@ -20,7 +29,9 @@ const alunoController = {
         return res.json(alunosFiltrados);
     },
     filtroNome: async (req, res) => {
-        const { nome } = req.params;
+        const {
+            nome
+        } = req.params;
 
         const alunosFiltrados = await Aluno.findAll({
             where: {
@@ -39,4 +50,4 @@ const alunoController = {
     }
 };
 
-module.exports = alunoController; 
+module.exports = alunoController;

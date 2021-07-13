@@ -18,5 +18,18 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
+    Area.associate = (models) => {
+
+        // 1:N uma area possui muitos cursos
+        Area.hasMany(models.Curso, {
+            // apelido da relação
+            as: 'cursos',
+            // chave estrangeira
+            foreignKey: 'area_id'
+        });
+
+
+    }
+
     return Area;
 }

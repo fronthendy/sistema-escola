@@ -21,5 +21,14 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
+    Professor.associate = (models) => {
+
+        // 1:N um professor possui varias turmas
+        Professor.hasMany(models.Turma, {
+            as: 'turmas',
+            foreignKey: 'professor_id'
+        });
+    }
+
     return Professor;
 }
