@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Aluno - Escola</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1> Novo aluno</h1>
+
+        <form action="/alunos/novo" method="POST">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" class="form-control">
+
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" name="sobrenome" id="sobrenome" class="form-control">
+
+            <label for="ano_matricula">Ano de matricula</label>
+            <input type="year" name="ano_matricula" id="ano_matricula" class="form-control">
+
+            <button class="btn btn-primary mt-3">salvar</button>
+
+            <a href="/dashboard" class="btn btn-default mt-3">voltar</a>
+        </form>
+    </div>
+</body>
+
+</html>
